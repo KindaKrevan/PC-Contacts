@@ -31,14 +31,17 @@ function drawContacts() {
   let template = "";
   contacts.forEach((contact) => {
     template += `
-      <div class="contact-card ${
+      <div class="contact-card card mt-1 mb-1 ${
         contact.emergencyContact ? "emergency-contact" : ""
       }">
-        <h3>${contact.name}</h3>
-        <p>${contact.phone}</p>
-        <button type="button" onclick="removeContact('${
-          contact.id
-        }')">remove</button>      
+        <h3 class="mt-1 mb-1">${contact.name}</h3>
+        <div class="d-flex space-between">
+          <p>
+            <i class="fa fa-fw fa-phone"></i>
+            <span>${contact.phone}</span>
+          </p>
+          <i class="action fa fa-trash text-danger" onclick="removeContact('${contact.id}')"></i>     
+        </div>
       </div>
     `;
   });
